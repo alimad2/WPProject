@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Home from './components/home-component';
-import Nav from './components/nav-component';
-import Login from './components/login-component';
-import Register from './components/register-component';
-import Profile from './components/profile-component';
+import {Nav, Login, Register, Profile, PrivateRoute, Home} from './components';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import axios from 'axios';
-import PrivateRoute from './components/PrivateRoute';
 
 export default class App extends Component {
   
