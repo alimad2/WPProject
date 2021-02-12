@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Home extends Component{
+export default class Profile extends Component{
     
     
 
@@ -8,8 +8,8 @@ export default class Home extends Component{
         console.log('home render');
         if (localStorage.getItem('token')){
 
-            return <h2>سلام {localStorage.getItem('username')}</h2>
+            return <h2>بروفایل کاربر</h2>
         }
-        return <h2>خوش آمدید!</h2>
+        return <h2>لطفا وارد شوید.</h2>
     }
 }
