@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import {Nav, Login, Register, Profile, PrivateRoute, Home} from './components';
+import {Nav, Login, Register, Profile, PrivateRoute, Home, UserLists} from './components';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import axios from 'axios';
 
@@ -37,6 +37,7 @@ export default class App extends Component {
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/register" component={Register}/>
                 <PrivateRoute path="/profile" component={Profile}/>
+                <PrivateRoute path="/list" component={UserLists}/>
               </Switch>
             {/* </div> */}
           {/* </div> */}

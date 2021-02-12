@@ -18,20 +18,6 @@ const styles = theme => ({
   });
 
 
-// function createList() {
-//     newListName = localStorage.getItem('newListName');
-//     const data = {name: newListName};
-//     axios.post('/user/list', data).then(
-//         res => {
-//             console.log(res);
-//         }
-//     ).catch(
-//         err => {
-//             console.log(err);
-//         }
-//     )
-// }
-
 class ProfileList extends Component {
 
     createNewList = e => {
@@ -56,7 +42,7 @@ class ProfileList extends Component {
             <p>‌شما می‌توانید از این قسمت لیست‌هایتان را مشاهده کنید یا لیست جدید بسازید.</p>
             <TextField onChange={e => this.newListName = e.target.value} className={classes.textField} size="small"></TextField>
             <Button className={classes.button} variant="contained" color="primary" onClick={this.createNewList}>ایجاد لیست جدید</Button>
-            <Button variant="contained">مشاهده لیست‌ها</Button>
+            <Button variant="contained" href="/list">مشاهده لیست‌ها</Button>
         </div>
     )
     }

@@ -5,3 +5,4 @@ export {default as PrivateRoute} from './PrivateRoute/PrivateRoute';
 export {default as Profile} from './Profile/Profile';
 export {default as Register} from './Register/Register';
 export {default as ProfileList} from './Profile/ProfileList';
+export {default as UserLists} from './Profile/UserLists';
