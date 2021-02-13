@@ -27,7 +27,7 @@ export default class UserLists extends Component{
 
     render(){
         // console.log(this.lists)
-        return(<div>
+        return(<div style={{width: '100%', padding:80}}>
             {
                 this.state.lists.map((list) => (
                     <UserList name={list.name} gifts={list.gifts.length} listId={list.id}></UserList>

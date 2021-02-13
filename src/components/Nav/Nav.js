@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 export default class Nav extends Component{
   
     render(){
-      console.log('navbar render');
       let buttons;
         if (localStorage.getItem('token')){
           buttons = (<ul className="nav justify-content-end">
+          <li className="nav-item">
+            <Link className="nav-link" to={'/profile'} >پروفایل</Link>
+          </li>
           <li className="nav-item">
             <Link className="nav-link" to={'/'} onClick={() => localStorage.clear()}>خروج</Link>
           </li>

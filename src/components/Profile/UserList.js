@@ -49,7 +49,7 @@ class UserList extends Component{
     render(){
         const {classes} = this.props;
         return(
-            <div style={{width: '100%', padding:80}}>
+            <div >
                 <Accordion>
                     <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
