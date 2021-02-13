@@ -5,23 +5,34 @@ import UserList  from './UserList'
 
 export default class UserLists extends Component{
 
+    
+    state = {lists: []};
     constructor(props){
         super(props);
+        
         axios.get('/user/list').then(
             res => {
-                console.log(res.data);
-                this.lists = res.data
+                console.log(res.data.lists);
+                // localStorage.setItem('lists', res.data)
+                // console.log(typeof(res.data));
+                this.setState({lists: res.data.lists});
             }
         ).catch(
             err => {
                 console.log(err);
             }
         )
+
     }
 
     render(){
+        // console.log(this.lists)
         return(<div>
-            <UserList></UserList>
+            {
+                this.state.lists.map((list) => (
+                    <UserList name={list.name} gifts={list.gifts.length} listId={list.id}></UserList>
+                ))
+            }
         </div>)
     }
 }

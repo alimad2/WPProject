@@ -7,6 +7,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import axios from 'axios';
 
 const styles = theme => ({
     root: {
@@ -24,11 +25,25 @@ const styles = theme => ({
 
 
 class UserList extends Component{
+
     constructor(props){
         super(props);
         this.name = props.name;
     }
 
+
+    deleteList = () => {
+        axios.delete('/user/list/' + this.props.listId).then(
+            res => {
+                console.log('deleted');
+                window.location.reload(false);
+            }
+        ).catch(
+            err => {
+                console.log(err);
+            }
+        )
+    }
 
 
     render(){
@@ -41,13 +56,13 @@ class UserList extends Component{
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                     >
-                        <Typography >نام لیست</Typography>
+                        <Typography >{this.props.name}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Typography className={classes.textField}>تعداد آیتم‌ها: 10</Typography>
+                        <Typography className={classes.textField}>تعداد آیتم‌ها: {this.props.gifts}</Typography>
                         <Typography className={classes.textField}>تعداد آیتم‌های در انتظار خرید: 2</Typography>
                         <Button className={classes.button} variant="contained" color="primary">مشاهده</Button>
-                        <Button className={classes.button} variant="contained" color="secondary">حذف</Button>
+                        <Button className={classes.button} variant="contained" color="secondary" onClick={this.deleteList}>حذف</Button>
                     </AccordionDetails>
                 </Accordion>
             </div>
