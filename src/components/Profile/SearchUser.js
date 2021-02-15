@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import CustomizedSnackbars from './CustomizedSnackbars';
 
 const styles = theme => ({
     root: {
@@ -21,7 +22,7 @@ const styles = theme => ({
 
 class SearchUser extends Component {
 
-    state = {redirect: null}
+    state = {redirect: null, dialog:false}
 
     searchUser = e => {
         e.preventDefault();
@@ -37,21 +38,29 @@ class SearchUser extends Component {
             err => {
                 if (err.response.status == 404){
                     alert('matching query does not exist.')
+                    // this.setState({dialog:true})
+                    // this.test = <CustomizedSnackbars></CustomizedSnackbars>
                 }
             }
         )
     }
 
     render(){
+        let test;
         if (this.state.redirect){
             return <Redirect to={this.state.redirect}></Redirect>
         }
+        // if (this.state.dialog){
+        //     test = <CustomizedSnackbars></CustomizedSnackbars>
+        //     // this.setState({dialog:false})
+        // }
         const {classes} = this.props;
     return (
         <div>
             <p>‌شما می‌توانید از این قسمت کاربرهای دیگر را سرچ کنید.</p>
             <TextField onChange={e => this.searchUsername = e.target.value} className={classes.textField} size="small"></TextField>
             <Button className={classes.button} variant="contained" color="primary" onClick={this.searchUser}>جستجو</Button>
+            {this.test}
         </div>
     )
     }

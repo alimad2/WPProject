@@ -9,3 +9,5 @@ export {default as UserLists} from './Profile/UserLists';
 export {default as SingleList} from './Profile/SingleList';
 export {default as Gift} from './Profile/Gift';
 export {default as User} from './User/User';
+export {default as UserSingleList} from './User/UserSingleList';
+export {default as Products} from './Product/Products';
