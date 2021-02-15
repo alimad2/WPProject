@@ -6,3 +6,5 @@ export {default as Profile} from './Profile/Profile';
 export {default as Register} from './Register/Register';
 export {default as ProfileList} from './Profile/ProfileList';
 export {default as UserLists} from './Profile/UserLists';
+export {default as SingleList} from './Profile/SingleList';
+export {default as Gift} from './Profile/Gift';

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Card from '@material-ui/core/Card';
 import { withStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import Accordion from '@material-ui/core/Accordion';
@@ -61,7 +60,7 @@ class UserList extends Component{
                     <AccordionDetails>
                         <Typography className={classes.textField}>تعداد آیتم‌ها: {this.props.gifts}</Typography>
                         <Typography className={classes.textField}>تعداد آیتم‌های در انتظار خرید: 2</Typography>
-                        <Button className={classes.button} variant="contained" color="primary">مشاهده</Button>
+                        <Button className={classes.button} variant="contained" color="primary" href={"/list/" + this.props.listId}>مشاهده</Button>
                         <Button className={classes.button} variant="contained" color="secondary" onClick={this.deleteList}>حذف</Button>
                     </AccordionDetails>
                 </Accordion>
