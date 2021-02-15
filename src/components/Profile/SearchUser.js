@@ -2,6 +2,7 @@ import { Button, TextField } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 const styles = theme => ({
     root: {
@@ -20,13 +21,17 @@ const styles = theme => ({
 
 class SearchUser extends Component {
 
+    state = {redirect: null}
+
     searchUser = e => {
-        console.log('here');
-        // const data = {username: this.searchUsername};
-        // console.log(data)
+        e.preventDefault();
+        // console.log('here');
+        // // const data = {username: this.searchUsername};
+        // // console.log(data)
         axios.get('/user/' + this.searchUsername).then(
             res => {
                 console.log(res.data);
+                this.setState({redirect:'/user/' + this.searchUsername})
             }
         ).catch(
             err => {
@@ -38,6 +43,9 @@ class SearchUser extends Component {
     }
 
     render(){
+        if (this.state.redirect){
+            return <Redirect to={this.state.redirect}></Redirect>
+        }
         const {classes} = this.props;
     return (
         <div>
