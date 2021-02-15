@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Rating from '@material-ui/lab/Rating';
 import axios from 'axios';
 
 const styles = theme => ({
@@ -16,6 +17,11 @@ const styles = theme => ({
 });
 
 class Gift extends  Component{
+
+    constructor(props){
+      super(props);
+      this.interest = (this.props.interest) / 2;
+    }
     
 
     deleteGift = () => {
@@ -63,9 +69,12 @@ class Gift extends  Component{
             <Button size="small" color="secondary" onClick={this.deleteGift}>
               حذف
             </Button>
-            <Button size="small" color="primary">
+            {/* <Button size="small" color="primary">
               {this.props.interest}/10
-            </Button>
+            </Button> */}
+            {/* <Box component="fieldset" mb={3} borderColor="transparent"> */}
+              <Rating name="read-only" value={this.interest} readOnly size="small"/>
+            {/* </Box> */}
           </CardActions>
         </Card>
       );
