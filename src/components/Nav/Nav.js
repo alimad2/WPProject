@@ -8,6 +8,9 @@ export default class Nav extends Component{
         if (localStorage.getItem('token')){
           buttons = (<ul className="nav justify-content-end">
           <li className="nav-item">
+            <Link className="nav-link" to={'/product'} >کالاها</Link>
+          </li>
+          <li className="nav-item">
             <Link className="nav-link" to={'/profile'} >پروفایل</Link>
           </li>
           <li className="nav-item">
