@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import DialogSelect from './DialogSelect';
 
 const styles = theme => ({
   root: {
@@ -15,6 +16,7 @@ const styles = theme => ({
 });
 
 class Product extends  Component{
+  
 
     
   render(){
@@ -36,18 +38,26 @@ class Product extends  Component{
               <Typography variant="body2" color="textSecondary" component="p">
                 {this.props.price} تومان
               </Typography>
-              <Typography variant="body3" color="textSecondary" component="p">
+              <Typography variant="caption" color="textSecondary" component="p">
                 {this.props.category} س
               </Typography>
-              <Typography variant="body3" color="textSecondary" component="p">
+              <Typography variant="caption" color="textSecondary" component="p">
                 {this.props.brand} f
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button href={'//' + this.props.link} size="small" color="primary">
+            <Button href={'//' + this.props.link} size="small" color="primary" >
                 لینک
             </Button>
+            {/* <Button style={{marginRight: 100}}>
+              <AddIcon color="primary"></AddIcon>
+            </Button> */}
+            <Button style={{marginRight: 100}}>
+              <DialogSelect name={this.props.name} brand={this.props.brand} link={this.props.link}
+              price={this.props.price}></DialogSelect>
+            </Button>
+            
             {/* <Button size="small" color="primary">
               {this.props.interest}/10
             </Button> */}
