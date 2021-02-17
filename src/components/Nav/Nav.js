@@ -19,7 +19,7 @@ export default class Nav extends Component{
         if (localStorage.getItem('token')){
           buttons = (<ul className="nav justify-content-end">
             <li className="nav-item">
-              <TextField onChange={e => this.searchPhrase = e.target.value}>
+              <TextField onChange={e => this.searchPhrase = e.target.value} placeholder="جستجو... ">
               </TextField>
               <Button onClick={this.handleSearch}>
                   <SearchIcon></SearchIcon>

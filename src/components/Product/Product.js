@@ -28,7 +28,7 @@ class Product extends  Component{
               component="img"
               alt="Contemplative Reptile"
               height="140"
-              image="https://johnlewis.scene7.com/is/image/JohnLewis/239246776?$rsp-pdp-port-640$"
+              image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
               title="Contemplative Reptile"
             />
             <CardContent>
