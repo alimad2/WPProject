@@ -40,6 +40,12 @@ class Gift extends  Component{
     
   render(){
     const {classes} = this.props;
+    let text;
+    if (this.props.eb){
+      text = 'خریده شده!';
+    }else{
+      text = this.props.price  + ' تومان '
+    }
     return (
         <Card className={classes.root}>
           <CardActionArea>
@@ -55,8 +61,11 @@ class Gift extends  Component{
                 {this.props.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                {this.props.price} تومان
+                {text}
               </Typography>
+              {/* <Typography vatiant="body2" color="textSecondary" component="p">
+                {text}
+              </Typography> */}
             </CardContent>
           </CardActionArea>
           <CardActions>

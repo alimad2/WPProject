@@ -8,6 +8,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
+import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
+import axios from 'axios';
 
 const styles = theme => ({
   root: {
@@ -16,27 +18,42 @@ const styles = theme => ({
 });
 
 class UserGift extends  Component{
+
+  state= {enable: true}
   constructor(props){
     super(props);
     this.interest = (this.props.interest - 1) / 2;
   }
 
-    // deleteGift = () => {
-    //     axios.delete('/user/list/' + this.props.listId + '/gift/' + this.props.giftId).then(
-    //         res => {
-    //             console.log('deleted');
-    //             window.location.reload(false);
-    //         }
-    //     ).catch(
-    //         err => {
-    //             console.log(err);
-    //         }
-    //     )
-    // }
+
+    handleClickGift = () =>{
+      console.log('clicked');
+      axios.get('/user/' + this.props.username + '/list/' + this.props.listId + '/gift/' + this.props.giftId
+      + '/buy').then(
+        res => {
+          console.log('success');
+          window.location.reload(false);
+        }
+      ).catch(
+        err => {
+          console.log('failure');
+        }
+      )
+    }
 
     
   render(){
     const {classes} = this.props;
+    let button;
+    if (this.props.eb){
+      button = <Button style={{marginRight:0}} onClick={this.handleClickGift} disabled>
+      <CardGiftcardIcon color="secondary"></CardGiftcardIcon>
+      </Button>
+    }else{
+      button = <Button style={{marginRight:0}} onClick={this.handleClickGift}>
+      <CardGiftcardIcon color="secondary"></CardGiftcardIcon>
+      </Button>
+    }
     return (
         <Card className={classes.root}>
           <CardActionArea>
@@ -66,7 +83,8 @@ class UserGift extends  Component{
             {/* <Button size="small" color="secondary" onClick={this.deleteGift}>
               حذف
             </Button> */}
-            <Rating name="read-only" value={this.interest} readOnly size="small" style={{paddingRight:60}}/>
+            {button}
+            <Rating name="read-only" value={this.interest} readOnly size="small" style={{paddingRight:0}}/>
           </CardActions>
         </Card>
       );

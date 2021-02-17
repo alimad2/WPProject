@@ -26,7 +26,7 @@ export default class UserSingleList extends Component {
             <Grid container justify="center" spacing={4}>
         {   
             this.state.list.gifts.map((gift) => (
-                <UserGift listId={this.props.match.params.id} name={gift.name} price={gift.price} interest={gift.interest} giftId={gift.id} link={gift.link}></UserGift>
+                <UserGift eb={gift.eb} username={this.props.match.params.username} listId={this.props.match.params.id} name={gift.name} price={gift.price} interest={gift.interest} giftId={gift.id} link={gift.link}></UserGift>
                 // console.log(gift)
             ))
         }
