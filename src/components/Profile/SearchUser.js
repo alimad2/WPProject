@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import CustomizedSnackbars from './CustomizedSnackbars';
+import Alert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar'
 
 const styles = theme => ({
     root: {
@@ -22,7 +24,15 @@ const styles = theme => ({
 
 class SearchUser extends Component {
 
-    state = {redirect: null, dialog:false}
+    state = {redirect: null, open:false}
+
+    handleClose = (event, reason) => {
+        // if (reason === 'clickaway') {
+        //   return;
+        // }
+    
+        this.setState({open:false});
+      };
 
     searchUser = e => {
         e.preventDefault();
@@ -37,7 +47,8 @@ class SearchUser extends Component {
         ).catch(
             err => {
                 if (err.response.status == 404){
-                    alert('matching query does not exist.')
+                    this.setState({open: true})
+                    // alert('matching query does not exist.')
                     // this.setState({dialog:true})
                     // this.test = <CustomizedSnackbars></CustomizedSnackbars>
                 }
@@ -60,7 +71,12 @@ class SearchUser extends Component {
             <p>‌شما می‌توانید از این قسمت کاربرهای دیگر را سرچ کنید.</p>
             <TextField onChange={e => this.searchUsername = e.target.value} className={classes.textField} size="small"></TextField>
             <Button className={classes.button} variant="contained" color="primary" onClick={this.searchUser}>جستجو</Button>
-            {this.test}
+            <Snackbar open={this.state.open} autoHideDuration={2000} onClose={this.handleClose}>
+                <Alert onClose={this.handleClose} severity="info">
+                    کاربری با این مشخصات پیدا نشد
+                </Alert>
+            </Snackbar>
+            {/* {test} */}
         </div>
     )
     }

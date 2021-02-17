@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import ProfileList from './ProfileList';
 import SearchUser from './SearchUser';
 import EditUser from './EditUser';
+import Suggestion from './Suggestion';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +42,7 @@ export default function Profile() {
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-              
+              <Suggestion></Suggestion>
           </Paper>
         </Grid>
         

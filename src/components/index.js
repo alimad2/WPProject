@@ -11,3 +11,4 @@ export {default as Gift} from './Profile/Gift';
 export {default as User} from './User/User';
 export {default as UserSingleList} from './User/UserSingleList';
 export {default as Products} from './Product/Products';
+export {default as Questions} from './Profile/Questions';

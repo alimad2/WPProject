@@ -14,7 +14,7 @@ class Products extends Component{
         const query = new URLSearchParams(this.props.location.search);
         const page = parseInt(query.get('page') || '1', 10);
         console.log(page)
-        axios.get('/product?page=' + this.page).then(
+        axios.get('/product?page=' + page).then(
             res => {
                 console.log(res.data);
                 this.setState({products: res.data.list})
