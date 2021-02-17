@@ -8,7 +8,7 @@ import axios from 'axios';
 
 export default class App extends Component {
   
-  state = {}
+  state = {user: null}
   componentDidMount = () =>{
     // console.log(localStorage.getItem('username'))
     axios.get('/user/self').then(

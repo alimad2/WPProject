@@ -23,7 +23,7 @@ class Product extends  Component{
     const {classes} = this.props;
     return (
         <Card className={classes.root}>
-          <CardActionArea>
+          {/* <CardActionArea> */}
             <CardMedia
               component="img"
               alt="Contemplative Reptile"
@@ -39,13 +39,13 @@ class Product extends  Component{
                 {this.props.price} تومان
               </Typography>
               <Typography variant="caption" color="textSecondary" component="p">
-                {this.props.category} س
+                دسته {this.props.category} 
               </Typography>
               <Typography variant="caption" color="textSecondary" component="p">
-                {this.props.brand} f
+                 برند {this.props.brand} 
               </Typography>
             </CardContent>
-          </CardActionArea>
+          {/* </CardActionArea> */}
           <CardActions>
             <Button href={'//' + this.props.link} size="small" color="primary" >
                 لینک

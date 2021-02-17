@@ -16,6 +16,7 @@ export default class Login extends Component{
                 localStorage.setItem('username', this.username);
 
                 this.props.history.push('/profile');
+                window.location.reload(false);
 
 
             }
